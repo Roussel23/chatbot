@@ -1,0 +1,32 @@
+{% extends 'base.html' %}  {% load static %}{% block content %}
+<section class="d-flex">
+  <div class="w-25"></div>
+  <div class="w-50 bg-light p-4">
+    <h1 class="text-info text-center text-decoration-underline">CHATBOT</h1>
+    <h2 class="text-warning fw-bold mb-4">Creation du compte</h2>
+    <form class="form-group" action="{% url 'register' %}" method="post">
+      {% csrf_token %}
+
+      <label>Nom d'utilisateur</label>
+      <input type="text" class="form-control mb-4" id="usernameField" value="{{fieldValues.username}}" name="username"/>
+      <div class="invalid_feedback invalid-feedback" style="display:none">
+      </div>
+      <p class="text-sm text-success usernameSuccessOutput"></p>
+      <label>Email</label>
+      <input type="email" class="form-control "value="{{fieldValues.email}}"   id="emailField" name="email"/>
+      
+      <label>Mot de passe</label>
+      <input type="Password" class="form-control" id="passwordField" name="password" />
+      <small class="float-right showPasswordToggle text-decoration-underline text-warning  mb-3">
+        SHOW
+      </small>
+      
+      <div class="mx-5">
+        <button class="btn btn-primary w-100 submit-btn">Enregister</button>
+      </div>
+    </form>
+  
+    <script src="{% static 'js/register.js' %}"></script
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% if chats %}
+
+<div class="request scroll-container container-fluid">
+  {% for chat in chats %}
+  <div class="bg-light mb-2 p-2">{{ chat.question }}</div>
+  <div class="response bg-warning mb-2 p-2">{{ chat.response }}</div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="text-danger fs-1 text-center my-3">No Data</p>
+<p class="text-center text-danger align-bottom-0">
+  Ce Chat peut faire des erreurs. Envisagez de verifier les informations
+  importantes
+</p>
+{% endif %}

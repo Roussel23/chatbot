@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section class="d-flex">
+  <div class="w-25"></div>
+  <div class="h-25"></div>
+  <div class="w-50 bg-light p-5">
+    <h1 class="text-info text-center text-decoration-underline">CHATBOT</h1>
+    <h2 class="text-warning fw-bold mb-4">Connection</h2>
+    <form class="form-group" action="{% url 'login' %}" method="post">
+      {% csrf_token %} {% include 'utils/messages.html' %}
+      <label>Nom d'utilisateur</label>
+      <input
+        type="text"
+        class="form-control mb-4"
+        value="{{fieldValues.username}}"
+        id="usernameField"
+        name="username"
+      />
+      <label>Mot de passe</label>
+      <input
+        type="Password"
+        class="form-control"
+        id="passwordField"
+        name="password"
+      />
+      <small
+        class="float-right showPasswordToggle text-decoration-underline text-warning mb-4"
+      >
+        SHOW
+      </small>
+      <div class="mx-5">
+        <button class="btn btn-primary w-100 submit-btn">Connection</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock %}

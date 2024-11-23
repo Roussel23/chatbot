@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<section class="">
+        <h1 class="text-center text-warning text-decoration-underline">Historique des chats</h1>
+        {% if chats %}
+                <div class="messages">
+                {% for request in chats %}
+                <div class="container bg-light my-3">
+                       <p>{{request.question}}</p>
+                </div>
+                {% endfor %}
+                </ul>
+        {% endif %}
+
+        <form class="mt-5" action="/"
+        method="get">
+        {% csrf_token %} 
+                <button class="btn btn-primary"><-- Go to chat</button>
+
+        </form>
+
+        
+</section>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+body{
+        background-color: lightgrey;
+      
+       
+}
+
+
+.input_chat{
+        height: 50px;
+        border-radius: 40px;
+        font-size: 18px;
+        
+        border: 1px solid gray;
+        
+        margin-top: 40px;
+        
+}
+.input2{
+        height: 50px;
+        border-radius: 40px;
+        font-size: 18px;
+        padding-left: 25px;
+        border: 1px solid gray;
+        
+        margin-top: 100px;
+        width: 800px
+}
+.button{
+        font-size: 20px;
+        border-radius: 10px;
+        margin-left: 20px;
+        margin-top: 40px;
+}
+.content{
+        width: 300px;
+        background-color: rgb(251, 207, 207);
+}
+.title{
+        color: orange;
+}
+
+.wrapper{
+        padding-top: 10px;
+        margin-top: 10px;
+        
+}
+
+.section1{
+        margin-bottom: 400px;
+        
+       
+}
+
+
+
+
+
+
+
+
+
+
+ /* Style général pour la zone de contenu défilable */
+ .scroll-container {
+        height: 200px;
+        overflow-y: scroll; /* Activer le défilement vertical */
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 5px auto;
+        width: 1000px;
+    }
+
+    /* Styles personnalisés pour la barre de défilement */
+    /* Largeur de la barre */
+    .scroll-container::-webkit-scrollbar {
+        width: 12px; /* Largeur de la barre */
+    }
+
+    /* Couleur de fond de la barre */
+    .scroll-container::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Couleur de fond de la piste */
+    }
+
+    /* Couleur et forme du curseur de défilement */
+    .scroll-container::-webkit-scrollbar-thumb {
+        background-color: #888; /* Couleur du curseur */
+        border-radius: 10px; /* Arrondir les coins */
+        border: 3px solid #f1f1f1; /* Bordure autour du curseur */
+    }
+
+    /* Couleur du curseur au survol */
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Couleur au survol */
+    }

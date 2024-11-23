@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section class="container-fluid">
+  <div class="container-fluid row d-flex">
+    <span class="text-center fs-2">
+      Bienvenue
+      <span class="text-primary" href=""> ({{request.user.username}}) </span>,
+      Comment puis-je vous aider à vous preinscrire en ligne ?
+    </span>
+    {% include 'utils/messages.html'%} {% include 'utils/card.html'%}
+    <ul class="messages-list"></ul>
+
+    <div class="position-fixed mb-0 h-25">
+      <form class="message-form container-fluid" method="post">
+        {% csrf_token %}
+
+        <div class="mx-1 mt-3 d-flex container-fluid">
+          <div class="input-group d-flex container-fluid">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form_chats form-control input-lg px-4 mx-1 container-fluid"
+                placeholder="Entrer votre question ..."
+                name="input_chat"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-2 btn-send">
+              Send
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!--<script src="{% static 'js/chat.js' %}"></script>-->
+
+{% endblock %}

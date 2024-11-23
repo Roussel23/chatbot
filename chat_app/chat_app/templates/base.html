@@ -1,0 +1,93 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title class="btn btn-primary">chat app</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link href="{% static 'css/main.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/chat.css'%}" rel="stylesheet" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark container-fluid m-0 section1">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-5" href="/">CHATBOT APP</a>
+        <div class="d-flex mt-2">
+          <form class="" action="{% url  'history' %}" method="POST">
+            {% csrf_token %}
+            <input
+              class="btn btn-warning"
+              type="submit"
+              value="Historique des chats"
+            />
+          </form>
+          {% if request.user.username %}
+          <form class="mx-2" action="{% url  'logout' %}" method="POST">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="Deconnection" />
+          </form>
+
+          {% else %}
+          <div>
+            <button class="btn btn-primary mx-2">
+              {% csrf_token %}
+              <a class="p-0 m-0 text-decoration-none text-light" href="/login"
+                >Connection</a
+              >
+            </button>
+          </div>
+          <div>
+            <button class="btn btn-primary mx-2">
+              {% csrf_token %}
+              <a
+                class="p-0 m-0 text-decoration-none text-light"
+                href="/register"
+                >Enregistrer</a
+              >
+            </button>
+          </div>
+
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrapper">{% block content %} {% endblock %}</div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="/docs/4.4/static/js/vendor/jquery.slim.min.js"><\/script>'
+        );
+    </script>
+    <script
+      src="/docs/4.4/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  </body>
+</html>
